@@ -1,7 +1,7 @@
 <?php 
 require 'utils.php'; 
 
-$isGuest= checkLogin();
+$isGuest= !checkLogin();
 if(!$isGuest){
     header( "Location: ".$_SESSION['userid'] );
 }

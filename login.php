@@ -25,6 +25,7 @@ if( $_SERVER['method']='POST' ){
 		session_start();
 		$userid=$row['userid'];
 		$_SESSION['username']=$username;
+		$_SESSION['userid']=$userid;
 		header( "Location: $userid");
 		
 	    }
@@ -51,7 +52,7 @@ if( $_SERVER['method']='POST' ){
     			<input type="password" name="password" />
     		</li>
     		<li>
-    			<input type="submit" value="Signup Now" class="large blue button" name="signup" />			
+    			<input type="submit" value="Login" class="large blue button" name="login" />			
     		</li>
     	</ul>
     </fieldset>

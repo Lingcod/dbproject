@@ -3,10 +3,9 @@
 require_once 'connect.php';
 function checkLogin(){
 	session_start();
-	     
-	if(empty($_SESSION[$username])) {
-	    return false;
+	if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+	    return true;
 	}
-	return true;
+	return false;
     }
 ?>
