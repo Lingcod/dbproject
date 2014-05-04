@@ -3,7 +3,7 @@ require 'utils.php';
 
 $isGuest= !checkLogin();
 if(!$isGuest){
-    header( "Location: ".$_SESSION['userid'] );
+    header( "Location: news" );
 }
 ?>
 

@@ -26,7 +26,7 @@ if( $_SERVER['method']='POST' ){
 		$userid=$row['userid'];
 		$_SESSION['username']=$username;
 		$_SESSION['userid']=$userid;
-		header( "Location: $userid");
+		header( "Location: news");
 		
 	    }
 	}
