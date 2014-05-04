@@ -28,6 +28,8 @@
 	$result=mysqli_query($con, "insert into diary(title, content, privacy, userid, locationid) values('$title','$content', $privacy, $userid, $locationid)");
 	if($result){
 	    $diaryid=$con->insert_id;
+	    $abstract=implode(' ', array_slice(explode(' ', $content), 0, 100));
+	    mysqli_query($con, "insert into news (tablename, pk, userid, privacy, title, abstract ) values ('diary', $diaryid, $userid, $privacy, '$title','$abstract')") ;
 	    header("Location: diary/$diaryid");
 	}
 
