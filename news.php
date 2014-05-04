@@ -3,7 +3,7 @@
     require_once 'utils.php';
     require 'header.php';
 
-    if(checkLogin){
+    if(checkLogin()){
 	$userid=$_SESSION['userid'];
 	$username=$_SESSION['username'];
     }
@@ -11,14 +11,20 @@
 	header('Location: index.php');//TODO add pages for guest
     }
 
-    $result = mysqli_query($con,"select * from news where privacy<=getrelation(userid,$userid) and getrelation(userid,$userid) between 1 and 3 order by posttime desc limit 10");
+    print("<div>");
+    require 'diary_post.php';
+    print("</div>");
+
+    $result = mysqli_query($con,"select * from news natural join user where privacy<=getrelation(userid,$userid) and getrelation(userid,$userid) between 1 and 2 order by posttime desc limit 10");
+
+
 
     print("<div>");
-    if(result){
+    if($result){
 	while($row=$result->fetch_assoc()){
 	    ?>
 	    <div >
-		<div><?= $username?>: <?= $row['title']?> </div>
+		<div><?= $row['username']?>: <?= $row['title']?> </div>
 		<div> <?= $row['abstract']?> </div>
 	    </div>
 	    <?php 

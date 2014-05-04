@@ -1,5 +1,5 @@
 <?php 
-require_once 'connect.php';//TODO
+require_once 'utils.php';
 
 $action = array();
 $action['result'] = null;
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 		session_start();
 		$_SESSION['username'] = $username;
 		$_SESSION['userid'] = $userid;
-		header( 'Location: '.$userid );
+		header( 'Location: news' );
 
 	    }
 	}
