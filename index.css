@@ -1,0 +1,72 @@
+
+#title
+{
+	margin-top: 5%;
+	
+	
+	}
+
+#logo
+{
+	background-image: url(wildbook_logo.png);
+	width: 400px;
+	height: 141px;
+	z-index: 5;
+	margin-left: 50%;
+
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	}
+
+#welcome
+{
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size: medium;
+	text-align: center;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: 50%;
+	margin-bottom: 0;
+	width: 400px;
+	}
+
+#aboutus
+{
+	padding-left: 5%;
+	padding-right: 5%;
+	position: fixed;
+	bottom: 0;
+	color: #FFFFFF;
+	font-size: small;
+	}
+
+.big_button
+{
+	width: 150px;
+	height: 30px;
+	padding-top: 3px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	background-image: url(big_button.png);
+	font-size: large;
+	color: #FFFFFF;
+	
+	}
+	
+html {
+ background: url(index_background.jpg) no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
+
+#login
+{	float:left; 
+	display:inline
+	}
+	
+#signup
+{	float:right; 
+	display:inline
+	
+	}
