@@ -5,17 +5,18 @@
  ?>
 
 <div id="menu">
-<span >
+<div >
     <a href="Index.php">Home</a>
     <a href="About.php">About</a> 
-</span>
+</div>
 
 <?php
 if($logedin){?>
-<span >
-    <a href="profile/<?=$_SESSION['userid']?>"><?=$_SESSION['username']?></a>
+<div >
+    <a href="page/<?=$_SESSION['userid']?>"><?=$_SESSION['username']?></a>
+    <a href="editprofile>">Edit Profile</a>
     <a href="logout">Logout</a>
-</span>
+</div>
 <?php
 }
 ?>
