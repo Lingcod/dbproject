@@ -18,6 +18,7 @@
     $pageid=$_GET['pageid'];
 
 
+    include 'profile.php';
     include 'diary_list.php';
 
 

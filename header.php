@@ -6,15 +6,15 @@
 
 <div id="menu">
 <div >
-    <a href="Index.php">Home</a>
-    <a href="About.php">About</a> 
+    <a href="index.php">Home</a>
+    <a href="about.php">About</a> 
 </div>
 
 <?php
 if($logedin){?>
 <div >
     <a href="page/<?=$_SESSION['userid']?>"><?=$_SESSION['username']?></a>
-    <a href="editprofile>">Edit Profile</a>
+    <a href="/editprofile">Edit Profile</a>
     <a href="logout">Logout</a>
 </div>
 <?php
