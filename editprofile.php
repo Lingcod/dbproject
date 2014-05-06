@@ -11,6 +11,7 @@ $userid=$_SESSION['userid'];
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $realname=$_POST['realname'];
     $age=$_POST['age'];
+    if(empty($age)) $age='null';
     $city=$_POST['city'];
     $privacy=$_POST['privacy'];
 
@@ -20,7 +21,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	echo '<div style="color: red">save failed!</div>';
     }
 }
-else{
+
+{
     $result=mysqli_query($con, "select * from profile where userid='$userid'");
     if($result && $result->num_rows==1){
 	$row=$result->fetch_assoc();

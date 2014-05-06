@@ -6,6 +6,7 @@
     
     if($diary){
 	while($row=$diary->fetch_assoc()){
+	    $pics=mysqli_query($con, "SELECT * FROM `picture` WHERE diaryid='{$row['diaryid']}'");
 ?>
 	    <div>
 		<div>
@@ -13,6 +14,17 @@
 		</div>
 		<div>
 		    <?=$row['content']?>
+		</div>
+		<div>
+		    <?php
+			if($pics){
+			    while($pic=$pics->fetch_assoc()){
+			    ?>
+			    <img src="/image.php?picid=<?=$pic['picid']?>" />
+			    <?php
+			    }
+			}
+		    ?>
 		</div>
 		<div>
 		<?php

@@ -19,9 +19,9 @@ if(!$isGuest){
     </div>
         
 	<div id="welcome">
-        <div class="big_button" id="login"><a href="login">Login</a></div>
+        <div class="big_button" id="login"><a href="/login">Login</a></div>
          
-        <div class="big_button" id="signup"><a href="signup">Sign up</a></div>
+        <div class="big_button" id="signup"><a href="/signup">Sign up</a></div>
     </div>
     
     <?php 

@@ -27,6 +27,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 	    }
 	}
 
+
 	if( !$have_error){
 	    $insert=mysqli_query($con,"insert into `user`(username, password) values('$username','$password');");
 	    if($insert){
