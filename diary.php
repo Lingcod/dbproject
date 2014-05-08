@@ -1,11 +1,16 @@
 <?php
     require_once 'utils.php';
-    $diary_result=mysqli_query($con, "select * from diary  where  privacy<=getrelation(userid, $userid) and userid='$pageid';");
+    require_once 'header.php';
+
+
+    $userid = $_SESSION['userid'];
+    $diaryid = (isset($_GET['diaryid']) && is_numeric($_GET['diaryid'])) ? intval($_GET['diaryid']) : 0;
+
+    $diary_result=mysqli_query($con, "select * from diary  where  privacy<=getrelation(userid, $userid) and diaryid=$diaryid");
     //TODO actloc
     
     if($diary_result){
 	while($diary=$diary_result->fetch_assoc()){
-	    $diaryid=$diary['diaryid'];
 ?>
 	    <div>
 		<div>
@@ -14,27 +19,32 @@
 		    <?=$diary['content']?>
 		</div>
 		<div>
-		    <?php
+<?php
 			$pics=mysqli_query($con, "SELECT * FROM `picture` WHERE diaryid='{$diaryid}'");
 			if($pics){
 			    while($pic=$pics->fetch_assoc()){
-			    ?>
+?>
 			    <img src="/image.php?picid=<?=$pic['picid']?>" />
-			    <?php
+<?php
 			    }
 			}
-		    ?>
+?>
 		</div>
 		<div>
 		<?php
-		    echo "MAYBE comments should be here"
-		    //include 'comment.php';
+		    //echo "MAYBE comments should be here"
+		    include 'comment.php';
 		?>
 		</div>
 	    </div>
-<?php
 
+	    <?php
 	}
     }
-
+    else{
+	echo $con->error;
+    }
 ?>
+
+
+

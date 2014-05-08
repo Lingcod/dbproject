@@ -7,3 +7,4 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 
 RewriteRule  ^(\w+)$ $1.php [NC,L]
 RewriteRule ^page/(.+)$ page.php?pageid=$1 [NC,L]
+RewriteRule ^diary/(.+)$ diary.php?diaryid=$1 [NC,L]
