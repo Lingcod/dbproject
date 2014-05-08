@@ -6,8 +6,8 @@
 
 <div id="menu">
 <div >
-    <a href="index.php">Homepage</a>
-    <a href="about.php">About</a> 
+    <a href="/index.php">Homepage</a>
+    <a href="/about.php">About</a> 
 </div>
 
 <?php
@@ -29,9 +29,9 @@ if($logedin){?>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="btn btn-info btn-lg" href="diary_post.php">Write new diary</a></li>
-        <li><a href="editprofile.php">Edit Profile</a></li>
-        <li><a href="logout.php">Logout</a></li>
+        <li><a class="btn btn-info btn-lg" href="/diary_post.php">Write new diary</a></li>
+        <li><a href="/editprofile.php">Edit Profile</a></li>
+        <li><a href="/logout.php">Logout</a></li>
         <!--form class="navbar-form" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
