@@ -34,19 +34,52 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 }
 
 ?>
-<form method="post" action="">
+
+
+
+<html>
+<head>
+  <title>Timeline - Wildbook</title>
+  <link rel="shortcut icon" href="icon.gif">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href="global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="narrow-body-wb">
+
+<form method="post" action="" role="form">
+	<div class="form-group">
     <label for="realname">Real Name</label>   
-    <input type="text" name="realname" value="<?=$realname?>" />
+    <input type="text" name="realname" class="form-control" value="<?=$realname?>" />
+    </div>
+    <div class="form-group">
     <label for="age">Age</label>   
-    <input type="text" name="age" value="<?=$age?>" />
+    <input type="text" name="age" class="form-control" value="<?=$age?>" />
+    </div>
+    <div class="form-group">
     <label for="city">City</label>   
-    <input type="text" name="city" value="<?=$city?>" />
-    <label for="privacy">Who can see this?</label>   
-    <select name="privacy" >
-	<option value="0">Public</option>
-	<option value="1">FOF</option>
+    <input type="text" name="city" class="form-control" value="<?=$city?>" />
+    </div>
+    <div class="form-group">
+    <label for="privacy">Who can view your profile?</label> <br>  
+    <select name="privacy" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+	<option value="0">Everyone</option>
+	<option value="1">Only Friends and friends of them</option>
 	<option value="2">Only Friend</option>
 	<option value="3">Only Me</option>
     </select>
-    <input type="submit" value="Save" />
+    </div>
+    <br><br>
+    <div class="form-group">
+    <button type="submit" value="Save" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div>
 </form>
+
+
+</div>
+
+
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

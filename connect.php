@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost", "mark", "", "wildbook");
+$con = mysqli_connect("localhost", "root", "", "wildbook");
 
 /* check connection */
 if (mysqli_connect_errno()) {

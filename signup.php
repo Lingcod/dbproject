@@ -10,8 +10,8 @@ $error_txt=array("username"=>'',"password"=>"","exists"=>"");
 if($_SERVER['REQUEST_METHOD']=='POST') {
 	//$username = mysqli_real_escape_string($_POST['username']);//TODO
 	//$password = mysqli_real_escape_string($_POST['password']);
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+    $username=isset($_POST['username']) ? $_POST['username'] : '';
+    $password=isset($_POST['password']) ? $_POST['password'] : '';
 
 
 	if(empty($username)){ $have_error=true; $error_txt["username"]='Uesrname cannot be empty'; }
@@ -43,49 +43,52 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 }
 ?>
 
-<form method="post" action="">
-    <fieldset>
-      <table>
-        <tr>
-          <td class="label">
-            Username
-          </td>
-          <td>
-      <input type="text" name="username" value="<?=$username?>">
-          </td>
-          <td class="error">
-            <?= $error_txt['username'];$error_txt['exists']; ?>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="label">
-            Password
-          </td>
-          <td>
-            <input type="password" id="password" name="password" value="">
-          </td>
-          <td class="error">
-            <?=$error_txt['password']?>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">
-            Password Again
-          </td>
-          <td>
-            <input type="password" id="verify" value="">
-          </td>
-        </tr>
-      </table>
-      <input type="submit">
-    </fieldset>
-
-
-</form>			
     <script >
     function verify(){
     }
     </script>
 
 
+<html style="background: url(login_background.jpg) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover; -o-background-size: cover; background-size: cover">
+<head>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<title>Sign Up - Wildbook</title>
+<link rel="shortcut icon" href="icon.gif">
+</head>
+<body style="background:none">
+
+<div class="container" id="logincontainer" style="width: 500px !important;margin-top: 100px;">
+    <div class="jumbotron">
+        <form method ="post" action="" role="form">
+        <fieldset>
+          <div class="form-group">
+            <label for="username">USERNAME</label>
+            <input type="text" class="form-control" name="username" placeholder="Username" value="<?= $username?>">
+            <td class="error">
+            	<?= $error_txt['username'];$error_txt['exists']; ?>
+         	</td>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="">
+            <td class="error">
+            	<?= $error_txt['username'];$error_txt['exists']; ?>
+            </td>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Re-enter Password</label>
+            <input type="password" class="form-control" id="verify" placeholder="Password" value="">
+            <td class="error">
+            	<?=$error_txt['password']?>
+            </td>
+          </div>
+        
+          <button type="submit" value="Login" class="btn btn-default" name="login">Submit</button>
+          </fieldset>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

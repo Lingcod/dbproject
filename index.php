@@ -1,17 +1,22 @@
+<html>
+
 <?php 
 require_once 'utils.php'; 
 
 $isGuest= !checkLogin();
 if(!$isGuest){
-    header( "Location: news" );
+    header( "Location: news.php" );
 }
 ?>
 
-<html>
+
 <head>
-<link type="text/css" rel="stylesheet" href="index.css">
+  <title>Wildbook</title>
+  <link rel="shortcut icon" href="icon.gif">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
-<body>
+<body style="background:none">
     <div id="title">
         <div id="logo">
         <h1></h1>
@@ -19,15 +24,14 @@ if(!$isGuest){
     </div>
         
 	<div id="welcome">
-        <div class="big_button" id="login"><a href="/login">Login</a></div>
-         
-        <div class="big_button" id="signup"><a href="/signup">Sign up</a></div>
+        <a id="login" class="btn btn-default btn-lg" href="login.php">&nbsp;&nbsp;&nbsp;&nbsp;Log In&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a id="signup" class="btn btn-default btn-lg" href="signup.php">&nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </div>
     
-    <?php 
+    <!--?php 
         require 'login.php';
         require 'signup.php';
-    ?>
+    ?-->
     </div>
     
     <div id="aboutus">

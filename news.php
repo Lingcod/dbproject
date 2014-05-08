@@ -1,3 +1,16 @@
+
+
+<html>
+<head>
+  <title>Timeline - Wildbook</title>
+  <link rel="shortcut icon" href="icon.gif">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href="global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div>
+
 <?php
 
     require_once 'utils.php';
@@ -11,22 +24,24 @@
 	header('Location: index.php');//TODO add pages for guest
     }
 
-    print("<div>");
-    require 'diary_post.php';
-    print("</div>");
+    //print("<div>");
+    //require 'diary_post.php';
+    //print("</div>");
 
     $result = mysqli_query($con,"select * from news natural join user where privacy<=getrelation(userid,$userid) and getrelation(userid,$userid) between 1 and 2 order by posttime desc limit 10");
 
 
-
-    print("<div>");
     if($result){
 	while($row=$result->fetch_assoc()){
 	    ?>
-	    <div >
-		<div><?= $row['username']?>: <?= $row['title']?> </div>
-		<div> <?= $row['abstract']?> </div>
-	    </div>
+        <div  class="narrow-body-wb">
+        <ul class="list-group">
+          <li class="list-group-item"><h4><?= $row['username']?>: <?= $row['title']?></h4></li>
+          <li class="list-group-item"><?= $row['abstract']?></li>
+        </ul>
+        </div>
+
+
 	    <?php 
 	}
 
@@ -34,5 +49,9 @@
     else{
 	print("Something went wrong when fetching from database  :( ");
     }
-    print("</div>");
 ?>
+</div>
+
+</body>
+
+</html>
