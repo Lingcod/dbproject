@@ -3,7 +3,7 @@
     require_once 'utils.php';
     require 'header.php';
 
-    if($isguest){
+    if(!$isguest){
 	$userid=$_SESSION['userid'];
 	$username=$_SESSION['username'];
     }
