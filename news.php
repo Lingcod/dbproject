@@ -29,7 +29,8 @@
 </head>
 <body>
 <div>
-        <div  class="narrow-body-wb">
+
+        <div  class="container">
         <ul class="list-group">
           <li class="list-group-item"><h4><?= $row['username']?>: <?= $row['title']?></h4></li>
           <li class="list-group-item"><?= $row['abstract']?></li>
