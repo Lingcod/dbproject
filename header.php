@@ -9,6 +9,7 @@
 <div >
     <a href="/index.php">Homepage</a>
     <a href="/about.php">About</a> 
+    <a href="/search.php">Search</a> 
 </div>
 
 <?php
