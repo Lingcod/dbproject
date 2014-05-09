@@ -1,22 +1,9 @@
-
-
-<html>
-<head>
-  <title>Timeline - Wildbook</title>
-  <link rel="shortcut icon" href="icon.gif">
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link href="global.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-
-<div>
-
 <?php
 
     require_once 'utils.php';
     require 'header.php';
 
-    if(checkLogin()){
+    if($isguest){
 	$userid=$_SESSION['userid'];
 	$username=$_SESSION['username'];
     }
@@ -34,6 +21,18 @@
     if($result){
 	while($row=$result->fetch_assoc()){
 	    ?>
+
+<html>
+<head>
+  <title>Timeline - Wildbook</title>
+  <link rel="shortcut icon" href="icon.gif">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href="global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div>
+
         <div  class="narrow-body-wb">
         <ul class="list-group">
           <li class="list-group-item"><h4><?= $row['username']?>: <?= $row['title']?></h4></li>

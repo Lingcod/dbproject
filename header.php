@@ -1,7 +1,8 @@
 <?php
 
     require_once 'utils.php';
-    $logedin=checkLogin();
+    $isguest=!checkLogin();
+    $_SESSION['guest']=$isguest;
  ?>
 
 <div id="menu">
