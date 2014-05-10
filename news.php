@@ -10,18 +10,16 @@
     else{
 	header('Location: index.php');//TODO add pages for guest
     }
-
-    //print("<div>");
+//print("<div>");
     //require 'diary_post.php';
     //print("</div>");
 
-    $result = mysqli_query($con,"select * from news natural join user where privacy<=getrelation(userid,$userid) and getrelation(userid,$userid) between 1 and 2 order by posttime desc limit 10");
+    $result = mysqli_query($con,"select * from news natural join user where privacy<=getrelation(userid,$userid) and getrelation(userid,$userid) between 1 and 2 order by posttime desc ");
 
 
     if($result){
 	while($row=$result->fetch_assoc()){
 	    ?>
-
 <html>
 <head>
   <title>Timeline - Wildbook</title>
@@ -30,7 +28,6 @@
   <link href="global.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
 <div>
 
         <div  class="container">

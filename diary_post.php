@@ -2,7 +2,7 @@
     require_once 'utils.php';
     require_once 'header.php';
 
-    if(!checkLogin()){
+    if($isguest){
 	header('Location: index.php');
     }
 
@@ -37,7 +37,7 @@
 		    $pic = addslashes(file_get_contents($value));
 		    $pic_result=mysqli_query($con, "insert into `picture` (`diaryid`,`pic`) values ($diaryid, '{$pic}')");
 		    if(!$pic_result){
-			echo mysqli_error($con);
+			$error = mysqli_error($con);
 		    }
 
 		}

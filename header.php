@@ -9,9 +9,10 @@
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <div >
     <a href="/index.php">Homepage</a>
-    <a href="/about.php">About</a>
     <a href="/location.php">Locations</a>
     <a href="/activity.php">Activities</a>
+    <a href="/about.php">About</a> 
+    <a href="/search.php">Search</a> 
 </div>
 
 <?php
