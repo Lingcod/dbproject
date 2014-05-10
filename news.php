@@ -2,6 +2,7 @@
 
     require_once 'utils.php';
     require 'header.php';
+    require_once 'comment.php';
 
     if(!$isguest){
 	$userid=$_SESSION['userid'];
@@ -34,6 +35,7 @@
         <ul class="list-group">
           <li class="list-group-item"><h4><?= $row['username']?>: <?= $row['title']?></h4></li>
           <li class="list-group-item"><?= $row['abstract']?></li>
+          <li class="list-group-item"><?php if($row['tablename']=='diary'){ getComment($row['pk']); } ?></li>
         </ul>
         </div>
 

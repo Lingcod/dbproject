@@ -1,9 +1,9 @@
 <?php
     require_once 'utils.php';
 
-    if(!isset($diaryid)){
-	die('diaryid is not set!');
-    }
+    //if(!isset($diaryid)){
+	//die('diaryid is not set!');
+    //}
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
 	$new_content=$_POST['content'];
@@ -17,30 +17,38 @@
 	}
     }
 
-    $comments=mysqli_query($con, "select * from comment natural join user where diaryid='$diaryid'");
-    if($comments){
-	while($c=$comments->fetch_assoc()){
-?>
-	<div>
+    function getComment($diaryid){
+	global $con;
+	$comments=mysqli_query($con, "select * from comment natural join user where diaryid='$diaryid'");
+	if($comments){
+	    while($c=$comments->fetch_assoc()){
+    echo ''?>
 	    <div>
-	    <?=$c['username']?>:
+		<div>
+		<?=$c['username']?>:
+		</div>
+		<div>
+		<?=$c['content']?>
+		</div>
 	    </div>
-	    <div>
-	    <?=$c['content']?>
-	    </div>
-	</div>
-<?php
+    <?php
+	    ;}
+
 	}
-
+	else{
+	    $error = mysqli_error($con);
+	    echo($error);
+	}
+	getCommentForm($diaryid);
     }
-    else{
-	$error = mysqli_error($con);
-	die($error);
-    }
-?>
 
+function getCommentForm($diaryid){
+    echo ''?> 
 <form method="POST" action="">
     <input type="hidden" name="diaryid" value="<?=$diaryid?>" />
     <textarea name="content" placeholder="Your comment here"></textarea>
     <button type="submit" value="" class="btn btn-default" name="submit">Submit</button>
 </form>
+<?php
+;}
+?>
