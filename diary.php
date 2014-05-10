@@ -13,12 +13,20 @@
     if($diary_result){
 	$diary=$diary_result->fetch_assoc();
 ?>
-	    <div>
-		<div>
-		    <?=$diary['title']?> </div>
-		<div>
-		    <?=$diary['content']?>
-		</div>
+<html>
+<head>
+  <title>Timeline - Wildbook</title>
+  <link rel="shortcut icon" href="icon.gif">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href="global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div  class="container">
+	<div>
+		<h1> <?=$diary['title']?> </h1>
+        <br><br>
+		<h5> <?=$diary['content']?></h5>
+    </div>
 		<div>
 <?php
 			$pics=mysqli_query($con, "SELECT * FROM `picture` WHERE diaryid='{$diaryid}'");

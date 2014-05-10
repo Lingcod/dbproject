@@ -8,3 +8,5 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule  ^(\w+)$ $1.php [NC,L]
 RewriteRule ^page/(.+)$ page.php?pageid=$1 [NC,L]
 RewriteRule ^diary/(.+)$ diary.php?diaryid=$1 [NC,L]
+RewriteRule ^location/(.+)$ location.php?locationid=$1 [NC,L]
+RewriteRule ^activity/(.+)$ activity.php?activityid=$1 [NC,L]
