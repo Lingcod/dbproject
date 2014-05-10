@@ -39,5 +39,4 @@ function addAct($aname){
     return $con->query("insert into activity(activityname) values ('$aname')");
 }
 
-
 ?>

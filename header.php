@@ -9,7 +9,9 @@
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <div >
     <a href="/index.php">Homepage</a>
-    <a href="/about.php">About</a> 
+    <a href="/about.php">About</a>
+    <a href="/location.php">Locations</a>
+    <a href="/activity.php">Activities</a>
 </div>
 
 <?php
@@ -24,7 +26,8 @@ if(!$isguest){?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/page/<?=$_SESSION['userid']?>"><?=$_SESSION['username']?>'s Page</a>
+      <a class="navbar-brand" href="/page/<?=$_SESSION['userid']?>"><?=$_SESSION['username']?>'s Page </a>
+      <a class="navbar-brand" href="/actloc.php"> Discover </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

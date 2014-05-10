@@ -53,22 +53,6 @@
 
 ?>
 
-
-<!--form method="POST" action="" enctype="multipart/form-data">
-	    <label for="title">Title:</label>
-	    <input type="text" name="title" />
-	    <textarea name="content" placeholder="Content here"></textarea>
-	    <select name="privacy" >
-		<option value="0">Public</option>
-		<option value="1">FOF</option>
-		<option value="2">Only Friend</option>
-		<option value="3">Only me</option>
-	    </select>
-	    <input type="file" name="pic[]" multiple />
-	    <input type="submit" value="Post" class="large blue button"/>			
-</form-->			
-
-
 <html>
 <head>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">

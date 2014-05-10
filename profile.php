@@ -16,7 +16,6 @@
 </head>
 <body>
   <div class="jumbotron">
-	   
 		<div>
 		    Name: <?=$row['realname']?>
 		</div>

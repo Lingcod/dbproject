@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body>
+
 	    <div class="list-group">
 		<div class="list-group-item-heading">
 		    <h4><?=$diary['title']?> </h4>
@@ -51,5 +52,6 @@
     }
 
 ?>
+
 </body>
 </html>
