@@ -2,6 +2,7 @@
 
 <?php
     require_once 'utils.php';
+    require_once 'comment.php';
     $diary_result=mysqli_query($con, "select * from diary  where  privacy<=getrelation(userid, $userid) and userid='$pageid' order by posttime DESC;");
     //TODO actloc
     
@@ -40,7 +41,9 @@
 		<div>
         <small>
 		<?php
-		    //include 'comment.php';
+		    //echo "MAYBE comments should be here"
+		    getComment($diaryid);
+
 		?>
 		</small>
 	    </div>

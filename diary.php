@@ -1,6 +1,7 @@
 <?php
     require_once 'utils.php';
     require_once 'header.php';
+    include 'comment.php';
 
 
     $userid = $_SESSION['userid'];
@@ -10,7 +11,7 @@
     //TODO actloc
     
     if($diary_result){
-	while($diary=$diary_result->fetch_assoc()){
+	$diary=$diary_result->fetch_assoc();
 ?>
 <html>
 <head>
@@ -42,13 +43,13 @@
         <br>
 		<?php
 		    //echo "MAYBE comments should be here"
-		    include 'comment.php';
+		    getComment($diaryid);
 		?>
 		</div>
 	    </div>
 
 	    <?php
-	}
+
     }
     else{
 	echo $con->error;
