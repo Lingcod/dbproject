@@ -34,13 +34,6 @@
 	    $activityid=$activity['activityid'];
 ?>
 
-
-
-<<<<<<< HEAD
-
-<body>
-=======
->>>>>>> c498022e63598055fa577a686e68f854e2762cfe
 <div class="container">
 <div class="row">
   <div class="col-sm-6 col-md-3"> 
