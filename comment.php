@@ -1,10 +1,6 @@
 <?php
     require_once 'utils.php';
 
-    if(!isset($diaryid)){
-		$message = "diaryid is not set!";
-		die("<script type='text/javascript'>alert('$message');</script>");
-    }
     //if(!isset($diaryid)){
 	//die('diaryid is not set!');
     //}
