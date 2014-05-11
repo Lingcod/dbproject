@@ -6,8 +6,14 @@
 <link rel="shortcut icon" href="icon.gif">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href="global.css" rel="stylesheet" type="text/css">
+<<<<<<< HEAD
 <body>
 </head>
+=======
+</head>
+<body>
+
+>>>>>>> c498022e63598055fa577a686e68f854e2762cfe
 <?php
     require_once 'utils.php';
     require 'header.php';
@@ -21,14 +27,14 @@
 ?>
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> c498022e63598055fa577a686e68f854e2762cfe
 <div class="container">
-<?php
-
-?>
 <div class="row">
   <div class="col-sm-6 col-md-3"> 
     <div class="thumbnail">

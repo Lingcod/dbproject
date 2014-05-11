@@ -1,4 +1,16 @@
 <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Activities</title>
+<link rel="shortcut icon" href="icon.gif">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href="global.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
 
 <html>
 <head>
@@ -24,12 +36,12 @@
 
 
 
+<<<<<<< HEAD
 
 <body>
+=======
+>>>>>>> c498022e63598055fa577a686e68f854e2762cfe
 <div class="container">
-<?php
-
-?>
 <div class="row">
   <div class="col-sm-6 col-md-3"> 
     <div class="thumbnail">
