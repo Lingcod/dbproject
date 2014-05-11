@@ -2,7 +2,8 @@
     require_once 'utils.php';
 
     if(!isset($diaryid)){
-	die('diaryid is not set!');
+		$message = "diaryid is not set!";
+		die("<script type='text/javascript'>alert('$message');</script>");
     }
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -22,11 +23,9 @@
 	while($c=$comments->fetch_assoc()){
 ?>
 	<div>
+    	<hr>
 	    <div>
-	    <?=$c['username']?>:
-	    </div>
-	    <div>
-	    <?=$c['content']?>
+	    <h5>&nbsp;&nbsp;&nbsp;&nbsp;<?=$c['username']?>: <?=$c['content']?> <small> published at <?=$c['posttime']?></small></h5>
 	    </div>
 	</div>
 <?php
@@ -40,7 +39,8 @@
 ?>
 
 <form method="POST" action="">
+<hr>
     <input type="hidden" name="diaryid" value="<?=$diaryid?>" />
-    <textarea name="content" placeholder="Your comment here"></textarea>
-    <button type="submit" value="" class="btn btn-default" name="submit">Submit</button>
+    <textarea name="content" style="border:hidden" class="form-control" placeholder="Leave a comment..."></textarea>
+    <button type="submit" value="" class="btn btn-primary" name="submit">Submit</button>
 </form>

@@ -21,7 +21,7 @@
           
             <div class="col-sm-4 col-md-3">
               <div class="thumbnail">
-                <div class="caption">
+                <div class="caption" style="height:250px">
                   <h3><?=$row['username']?></h3>
                   <div style="height:100px"><p><?=$row['locationname']?> is a good place for <?=$row['activityname']?></p></div>
                   <p><a href="activity/<?=$row['activityid']?>">Other Places for <?=$row['activityname']?></a></p>

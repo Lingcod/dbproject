@@ -24,8 +24,8 @@ if(!$isGuest){
     </div>
         
 	<div id="welcome">
-        <a id="login" class="btn btn-default btn-lg" href="login.php">&nbsp;&nbsp;&nbsp;&nbsp;Log In&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        <a id="signup" class="btn btn-default btn-lg" href="signup.php">&nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a id="login" class="btn btn-default btn-lg" href="/login.php">&nbsp;&nbsp;&nbsp;&nbsp;Log In&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a id="signup" class="btn btn-default btn-lg" href="/signup.php">&nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </div>
     
     <!--?php 

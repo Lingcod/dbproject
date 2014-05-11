@@ -24,12 +24,19 @@ if( $_SERVER['REQUEST_METHOD']='POST' ){
 		$row=$result->fetch_array();
 		session_start();
 		$userid=$row['userid'];
+		$lastaccess=$row['lastaccess'];
+		
 		$_SESSION['username']=$username;
 		$_SESSION['userid']=$userid;
+		$_SESSION['lastaccess']=$lastaccess;
 		header( "Location: news.php");
 		
 	    }
-	}
+	  }
+	else{
+		$message = "No such user account!";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+		}
     }
 
 

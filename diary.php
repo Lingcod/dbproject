@@ -14,7 +14,7 @@
 ?>
 <html>
 <head>
-  <title>Timeline - Wildbook</title>
+  <title>Diary - Wildbook</title>
   <link rel="shortcut icon" href="icon.gif">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link href="global.css" rel="stylesheet" type="text/css">
@@ -22,7 +22,7 @@
 <body>
 <div  class="container">
 	<div>
-		<h1> <?=$diary['title']?> </h1>
+		<h1> <?=$diary['title']?> <small>published at <?=$diary['posttime']?></small></h1>
         <br><br>
 		<h5> <?=$diary['content']?></h5>
     </div>
@@ -39,6 +39,7 @@
 ?>
 		</div>
 		<div>
+        <br>
 		<?php
 		    //echo "MAYBE comments should be here"
 		    include 'comment.php';

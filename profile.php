@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <?php
     require_once 'utils.php';
+	$lastaccess = $_SESSION['lastaccess'];
     $result=mysqli_query($con, "select * from profile  where  privacy<=getrelation(userid, $userid) and userid='$pageid';");
     
     if($result){
@@ -23,7 +24,10 @@
 		    Age: <?=$row['age']?>
 		</div>
 		<div>
-		    <?=$row['city']?>
+		    City: <?=$row['city']?>
+		</div>
+        <div>
+		    Last Access: <br><?=$lastaccess?>
 		</div>
 	   
    </div>
