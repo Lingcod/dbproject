@@ -32,7 +32,7 @@
 
         <div  class="container">
         <ul class="list-group">
-          <li class="list-group-item"><h4><?= $row['username']?>: <a href="<?=$tablename?>/<?=$row['pk']?>"><?= $row['title']?></a></h4></li>
+    <li class="list-group-item"><h4><a href="page/<?=$row['userid']?>"><?= $row['username']?></a>: <a href="<?=$tablename?>/<?=$row['pk']?>"><?= $row['title']?></a></h4></li>
           <li class="list-group-item"><?= $row['abstract']?></li>
           <li class="list-group-item"><?php if($row['tablename']=='diary'){ getComment($row['pk']); } ?></li>
         </ul>
