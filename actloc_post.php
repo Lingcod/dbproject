@@ -98,8 +98,8 @@
 
       <div class="modal-footer"> 
         <select name="privacy" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          <option value="0">Everyone could read this diary</option>
-          <option value="1">Only friends and friends of them</option>
+          <option value="0">Notify everyone about this news</option>
+          <option value="1">Only friends and friends of theirs</option>
           <option value="2">Only Friend</option>
           <option value="3">Only me</option>
         </select> 
