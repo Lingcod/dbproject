@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   
 </head>
+<body>
 <?php
     require_once 'utils.php';
     require_once 'header.php';
@@ -26,17 +27,16 @@
     }
     $pageid=$_GET['pageid'];
 ?>
-<body>
 
 <div class="row">
-    <div class="col-lg-2">
+    <div class="profile col-lg-2">
     <div class="container-fluid">
     <?php
         include 'profile.php';
         ?>
      </div> 
     </div>
-    <div class="container">
+    <div class="diary_list container">
     <div class="col-lg-8">
      
     <?php

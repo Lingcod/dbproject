@@ -1,12 +1,15 @@
 <?php
     require_once 'utils.php';
 
+
     if($_SERVER['REQUEST_METHOD']=='POST'){
 	$userid=$_POST['userid'];
 	$objid=$_POST['objid'];
 	$type=$_POST['type'];
-	header('Content-Type: application/json');
-	echo json_encode(array('id'=>$objid, 'type'=>$type, 'result'=>toggle_like($userid,$objid,$type)));
+	if($userid && $objid && $type){
+	    header('Content-Type: application/json');
+	    echo json_encode(array('id'=>$objid, 'type'=>$type, 'result'=>toggle_like($userid,$objid,$type)));
+        }
     }
 
     function toggle_like($userid, $objid, $type){

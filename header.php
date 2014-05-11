@@ -6,7 +6,6 @@
  ?>
 
 <div id="menu">
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <div >
     <a href="/index.php"><span class="glyphicon glyphicon-home"></span>Homepage</a>&nbsp;&nbsp;
     <a href="/location.php"><span class="glyphicon glyphicon-map-marker"></span>Locations</a>&nbsp;&nbsp;

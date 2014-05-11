@@ -1,9 +1,6 @@
 <?php
     require_once 'utils.php';
 
-    //if(!isset($diaryid)){
-	//die('diaryid is not set!');
-    //}
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
 	$new_content=$_POST['content'];

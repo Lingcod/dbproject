@@ -1,9 +1,10 @@
-<!DOCTYPE HTML>
-
+<script src="/jquery.min.js"></script>
+<script src="/global.js"></script>
 <?php
     require_once 'utils.php';
     require_once 'comment.php';
     require_once 'like.php';
+    $userid = $_SESSION['userid'];
     $diary_result=mysqli_query($con, "select * from diary  where  privacy<=getrelation(userid, $userid) and userid='$pageid' order by posttime DESC;");
     //TODO actloc
     
@@ -11,15 +12,6 @@
 	while($diary=$diary_result->fetch_assoc()){
 	    $diaryid=$diary['diaryid'];
 ?>
-<html>
-<head>
-  <link rel="shortcut icon" href="icon.gif">
-  <title>Post new Diary</title>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-</head>
-<body>
-<script src="/jquery.min.js"></script>
-<script src="/global.js"></script>
 
 	    <div class="list-group">
 		<div class="list-group-item-heading">
@@ -59,8 +51,9 @@
 
 	}
     }
+    else{
+	echo "fail to fetch diary_list userid:$userid, pageid:$pageid";
+    }
 
 ?>
 
-</body>
-</html>
