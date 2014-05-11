@@ -18,16 +18,16 @@
 <body>
   <div class="jumbotron">
 		<div>
-		    Name: <?=$row['realname']?>
+		    <strong>Name: </strong><?=$row['realname']?>
 		</div>
 		<div>
-		    Age: <?=$row['age']?>
+		    <strong>Age: </strong><?=$row['age']?>
 		</div>
 		<div>
-		    City: <?=$row['city']?>
+		    <strong>City: </strong><?=$row['city']?>
 		</div>
         <div>
-		    Last Access: <br><?=$lastaccess?>
+		    <strong>Last Access: </strong><br><?=$lastaccess?>
 		</div>
 	   
    </div>

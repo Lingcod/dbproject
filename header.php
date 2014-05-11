@@ -8,11 +8,11 @@
 <div id="menu">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <div >
-    <a href="/index.php">Homepage</a>
-    <a href="/location.php">Locations</a>
-    <a href="/activity.php">Activities</a>
-    <a href="/about.php">About</a> 
-    <a href="/search.php">Search</a> 
+    <a href="/index.php"><span class="glyphicon glyphicon-home"></span>Homepage</a>&nbsp;&nbsp;
+    <a href="/location.php"><span class="glyphicon glyphicon-map-marker"></span>Locations</a>&nbsp;&nbsp;
+    <a href="/activity.php"><span class="glyphicon glyphicon-fire"></span>Activities</a>&nbsp;&nbsp;
+    <a href="/about.php"><span class="glyphicon glyphicon-tag"></span>About</a> &nbsp;&nbsp;
+    <a href="/search.php"><span class="glyphicon glyphicon-search"></span>Search</a> 
 </div>
 
 <?php
@@ -27,18 +27,18 @@ if(!$isguest){?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/page/<?=$_SESSION['userid']?>"><?=$_SESSION['username']?>'s Page </a>
-      <a class="navbar-brand" href="/actloc.php"> Discover </a>
+      <a class="navbar-brand" href="/page/<?=$_SESSION['userid']?>"><span class="glyphicon glyphicon-user"></span> <?=$_SESSION['username']?>'s Page </a>
+      <a class="navbar-brand" href="/actloc.php"> <span class="glyphicon glyphicon-eye-open"></span> Discover </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="btn btn-info btn-lg" href="/diary_post.php">Write new diary</a></li>
-        <li><a class="btn btn-success btn-lg" href="/actloc_post.php">Post a new place for activity</a></li>
-        <li><a href="/editprofile.php">Edit Profile</a></li>
-        <li><a href="/logout.php">Logout</a></li>
+        <li><a class="btn btn-info btn-lg" href="/diary_post.php"><span class="glyphicon glyphicon-edit"></span> Write new diary</a></li>
+        <li><a class="btn btn-success btn-lg" href="/actloc_post.php"><span class="glyphicon glyphicon-plus"></span> Post a new place for activity</a></li>
+        <li><a href="/editprofile.php"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
+        <li><a href="/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         <!--form class="navbar-form" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
