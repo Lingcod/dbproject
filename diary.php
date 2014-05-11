@@ -2,9 +2,10 @@
     require_once 'utils.php';
     require_once 'header.php';
     include 'comment.php';
+    require_once 'like.php';
 
 
-    $userid = $_SESSION['userid'];
+    $userid = (isset($_SESSION['userid']))? intval($_SESSION['userid']) : null;
     $diaryid = (isset($_GET['diaryid']) && is_numeric($_GET['diaryid'])) ? intval($_GET['diaryid']) : 0;
 
     $diary_result=mysqli_query($con, "select * from diary  where  privacy<=getrelation(userid, $userid) and diaryid=$diaryid");
@@ -21,6 +22,8 @@
   <link href="global.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<script src="/jquery.min.js"></script>
+<script src="/global.js"></script>
 <div  class="container">
 	<div>
 		<h1> <?=$diary['title']?> <small>published at <?=$diary['posttime']?></small></h1>
@@ -38,6 +41,9 @@
 			    }
 			}
 ?>
+		</div>
+		<div>
+	    <?php like_btn($userid, $diaryid, 'diary')?>
 		</div>
 		<div>
         <br>

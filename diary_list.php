@@ -3,6 +3,7 @@
 <?php
     require_once 'utils.php';
     require_once 'comment.php';
+    require_once 'like.php';
     $diary_result=mysqli_query($con, "select * from diary  where  privacy<=getrelation(userid, $userid) and userid='$pageid' order by posttime DESC;");
     //TODO actloc
     
@@ -17,6 +18,8 @@
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body>
+<script src="/jquery.min.js"></script>
+<script src="/global.js"></script>
 
 	    <div class="list-group">
 		<div class="list-group-item-heading">
@@ -37,6 +40,9 @@
 			    }
 			}
 		    ?>
+		</div>
+		<div>
+	    <?php like_btn($userid, $diaryid,'diary') ?>
 		</div>
 		<div>
         <small>
