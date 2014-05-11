@@ -23,11 +23,9 @@
 	if($comments){
 	    while($c=$comments->fetch_assoc()){
     echo ''?>
-	    <div>
 		<div>
 		<h5>&nbsp;&nbsp;&nbsp;&nbsp;<?=$c['username']?>: <?=$c['content']?> <small> published at <?=$c['posttime']?></small></h5>
 		</div>
-	    </div>
     <?php
 	    ;}
 
@@ -42,7 +40,7 @@
 function getCommentForm($diaryid){
     echo ''?> 
 <form method="POST" action="">
-<hr>
+	<br>
     <input type="hidden" name="diaryid" value="<?=$diaryid?>" />
     <textarea name="content" style="border:hidden" class="form-control" placeholder="Leave a comment..."></textarea>
     <button type="submit" value="" class="btn btn-primary" name="submit">Submit</button>
