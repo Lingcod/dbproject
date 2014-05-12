@@ -104,7 +104,7 @@
 ?>
         <option value="-1">Add New</option>
         </select>
-	<input style="display: none" id="act-input" name="activityname" class="form-control" type="text" placeholder="New Location Name" value="" />
+	<input style="display: none" id="act-input" name="activityname" class="form-control" type="text" placeholder="New Activity Name" value="" />
         <br> <br>
         <div class="row">
           <div class="col-md-5">
