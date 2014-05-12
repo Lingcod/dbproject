@@ -24,7 +24,7 @@
 <div class="row">
 <?php
   if(!isset($_GET["actlocid"])|| empty($_GET['actlocid'])){
-    if($a = mysqli_query($con,"select * from actloc natural join user natural join location natural join activity order by actlocid DESC")){
+    if($a = mysqli_query($con,"select * from actloc natural join user natural join location natural join activity natural join likeactloc_num order by like_num DESC")){
 		while($row=$a->fetch_assoc()){
 ?>
           

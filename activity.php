@@ -26,7 +26,7 @@
     require_once 'utils.php';
     require 'header.php';
 	if(!isset($_GET["activityid"])|| empty($_GET['activityid'])){{
-    $activity_list=mysqli_query($con, "select * from activity;");
+    $activity_list=mysqli_query($con, "select * from activity natural join likeactivity_num order by like_num desc;");
     //TODO actloc
     
     if($activity_list){
@@ -40,7 +40,7 @@
     <div class="thumbnail">
       
       <div class="caption">
-        <div style="height:100px; margin-bottom:5px"><h3><?=$activity['activityname']?></h3></div>
+  <div style="height:100px; margin-bottom:5px"><h3><?=$activity['activityname']?></h3><small><?=$activity['like_num']?> people liked this</small></div>
         
         <p>Available at  
 		<?php 	

@@ -6,12 +6,16 @@ $(function(){
 	    objid: $(this).attr('data-id')
 	}, function(data) {
 	    var btn = $('.btn-like[data-type="' + data.type + '"][data-id="' + data.id + '"]');
+	    var num = $('.like-num[data-type="' + data.type + '"][data-id="' + data.id + '"]');
 	    if (data.result == true) {
 		btn.addClass('liked');
 		btn.text('liked');
+		num.text(data.like_num+'people liked this');
+
 	    } else {
 		btn.removeClass('liked');
 		btn.text('like');
+		num.text('');
 	    }
 	});
     });
