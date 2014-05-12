@@ -1,5 +1,6 @@
 <?php 
 require_once 'utils.php';
+$username='';
 
 $action = array();
 $action['result'] = null;
