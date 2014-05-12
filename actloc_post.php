@@ -31,6 +31,10 @@
 		die("<script type='text/javascript'>alert('$message');</script>");
 	      }
 	  }
+	  else{
+	      $result=$con->query("select * from activity where activityid=$activityid");
+	      $activityname=$result->fetch_assoc()['activityname'];
+	  }
 
 	  $isnew = mysqli_query($con,"select locationid from location where locationname='$locationname'");
 	  $row = $isnew->fetch_assoc();
@@ -54,7 +58,7 @@
 		$result=mysqli_query($con, "insert into actloc(activityid,locationid,userid) values ($activityid,$locationid,$userid)");
 		if($result){
 			$actlocid=$con->insert_id;
-			$title= $username . " thought " . $locationname . " is a good place for" . $activityname;
+			$title= $locationname ." is a good place for ".$activityname;
 			mysqli_query($con, "insert into news (tablename, pk, userid, privacy, title) values ('actloc', $actlocid, $userid, $privacy,'$title')");
   
 			header("Location: actloc.php");
