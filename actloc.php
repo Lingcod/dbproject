@@ -1,7 +1,3 @@
-<?php
-    require_once 'utils.php';
-    require_once 'header.php';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +7,19 @@
 <link href="global.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<script src="/jquery.min.js"></script>
+<script src="/global.js"></script>
+<?php
+    require_once 'utils.php';
+    require_once 'header.php';
+    require_once 'like.php';
+
+    if(!$isguest){
+	$userid=$_SESSION['userid'];
+    }
+    else
+	$userid=null;
+?>
 <div class="container">	
 <div class="row">
 <?php
@@ -22,11 +31,12 @@
             <div class="col-sm-4 col-md-3">
               <div class="thumbnail">
                 <div class="caption" style="height:250px">
-                  <h3><?=$row['username']?></h3>
-                  <div style="height:100px"><p><?=$row['locationname']?> is a good place for <?=$row['activityname']?></p></div>
+                  <h3><?=$row['username']?>:</h3>
+                  <div style="height:100px"><p><b><?=$row['locationname']?></b> is a good place for <b><?=$row['activityname']?></b></p></div>
                   <p><a href="activity/<?=$row['activityid']?>">Other Places for <?=$row['activityname']?></a></p>
                   <p><a href="location/<?=$row['locationid']?>">Other Activities at <?=$row['locationname']?></a></p>
                 </div>
+	    <?php like_btn($userid,$row['actlocid'],'actloc'); ?>
               </div>
             </div>
           

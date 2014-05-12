@@ -29,6 +29,21 @@
 	    }
 
 	}
+	elseif($type=='actloc'){
+	    if(is_liked($userid, $objid, $type)){
+		if($con->query("delete from likeactloc where (actlocid, userid)=($objid, $userid)")){
+		    return false;
+		}
+		else return true;
+	    }
+	    else{
+		if($con->query("insert into likeactloc(actlocid, userid) values($objid, $userid)")){
+		    return true;
+		}
+		else return false;
+	    }
+
+	}
 
     }
 
