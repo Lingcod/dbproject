@@ -15,14 +15,22 @@
 	  $userid=$_SESSION['userid'];
 	  $username=$_SESSION['username'];
 	  $activityid=$_POST['activityid'];
+	  $activityname=$_POST['activityname'];
 	  $locationname=mysqli_real_escape_string($con, $_POST['locationname']);
 	  $longitude=$_POST['longitude'];
 	  $latitude=$_POST['latitude'];
 	  $privacy=$_POST['privacy'];
 
-	  $result = mysqli_query($con,"select activityname from activity where activityid='$activityid'");
-	  $row = $result->fetch_assoc();
-	  $acitivityname = $row['activityname'];
+	  if($activityid == -1 && !empty($activityname)){
+	      $result=$con->query("insert into activity (activityname) values ('$activityname')");
+	      if($result){
+		  $activityid=$con->insert_id;
+	      }
+	      else{
+		$message = "Add new activity failed";
+		die("<script type='text/javascript'>alert('$message');</script>");
+	      }
+	  }
 
 	  $isnew = mysqli_query($con,"select locationid from location where locationname='$locationname'");
 	  $row = $isnew->fetch_assoc();
@@ -77,12 +85,22 @@
         </div>
       </div>
       <div class="modal-body">
-        <select name="activityid" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          <option value="1">Fishing</option>
-          <option value="2">Hiking</option>
-          <option value="3">Swimming</option>
-          <option value="4">Skydiving</option>
+        <select id="act-select" name="activityid" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" onchange="if(this.value == -1) show_tag('act-input',true); else show_tag('act-input',false);";>
+<?php 
+	    $act_result=$con->query("select * from activity order by activityname asc");
+	    if($act_result){
+		while($act_row=$act_result->fetch_assoc()){
+?>
+
+	    <option value="<?=$act_row['activityid']?>"><?=$act_row['activityname']?></option>
+<?php
+		}
+
+	    }
+?>
+        <option value="-1">Add New</option>
         </select>
+	<input style="display: none" id="act-input" name="activityname" class="form-control" type="text" placeholder="New Location Name" value="" />
         <br> <br>
         <div class="row">
           <div class="col-md-5">

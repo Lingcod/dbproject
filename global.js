@@ -78,3 +78,13 @@ function geolocate() {
   }
 }
 // [END region_geolocation]
+//
+function show_tag(id,show){
+    if(show){
+	document.getElementById(id).style.display = "inline";
+    }
+    else{
+	document.getElementById(id).style.display = "none";
+    }
+
+}
