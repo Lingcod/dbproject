@@ -71,8 +71,10 @@
 <title>Post New Diary</title>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="shortcut icon" href="icon.gif">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="/global.js">  </script>
 </head>
-<body>
+<body onload="initialize()">
 <form method="POST" action="" enctype="multipart/form-data">
 <div class="modal-dialog">
     <div class="modal-content">
@@ -94,13 +96,13 @@
       <input type="file" name="pic[]" multiple /> <br>
       <div class="row">
         <div class="col-md-5">
-          <input type="text" class="form-control" placeholder="Your location..." name="locationname"/>
+          <input id="autocomplete" type="text" class="form-control" placeholder="Your location..." name="locationname"/>
         </div>
         <div class="col-md-3">
-          <input type="number" class="form-control" placeholder="latitude" name="latitude"/>
+          <input id="latitude" type="text" class="form-control" placeholder="latitude" name="latitude"/>
         </div>
         <div class="col-md-3">
-          <input type="number" class="form-control" placeholder="longitude" name="longitude"/>
+          <input id="longitude" type="text" class="form-control" placeholder="longitude" name="longitude"/>
         </div>
       </div>
       <div class="modal-footer">

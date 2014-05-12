@@ -65,56 +65,7 @@
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="shortcut icon" href="icon.gif">
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-<script>
-// This example displays an address form, using the autocomplete feature
-// of the Google Places API to help users fill in the information.
-
-var placeSearch, autocomplete;
-
-function initialize() {
-  // Create the autocomplete object, restricting the search
-  // to geographical location types.
-  autocomplete = new google.maps.places.Autocomplete(
-      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
-      { types: ['geocode'] });
-  // When the user selects an address from the dropdown,
-  // populate the address fields in the form.
-  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-    fillInAddress();
-  });
-}
-
-// [START region_fillform]
-function fillInAddress() {
-  // Get the place details from the autocomplete object.
-  var place = autocomplete.getPlace();
-  // Get each component of the address from the place details
-  // and fill the corresponding field on the form.
-      console.log(place);
-      document.getElementById('latitude').value = place.geometry.location.A;
-      document.getElementById('longitude').value = place.geometry.location.k;
-      window.setTimeout(function(){document.getElementById('autocomplete').value = place.name;},50)
-      
-
-}
-// [END region_fillform]
-
-// [START region_geolocation]
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
-function geolocate() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = new google.maps.LatLng(
-          position.coords.latitude, position.coords.longitude);
-      autocomplete.setBounds(new google.maps.LatLngBounds(geolocation,
-          geolocation));
-    });
-  }
-}
-// [END region_geolocation]
-
-    </script>
+<script src="/global.js">  </script>
 </head>
 <body onload="initialize()">
 <form method="POST" action="" enctype="multipart/form-data">
@@ -138,10 +89,10 @@ function geolocate() {
             <input id="autocomplete" onFocus="geolocate()" type="text" class="form-control" placeholder="Location Name..." name="locationname"/>
           </div>
           <div class="col-md-3">
-            <input id="latitude" type="number" step="any" class="form-control" placeholder="Latitude" name="latitude"/>
+            <input id="latitude" type="text" step="any" class="form-control" placeholder="Latitude" name="latitude"/>
           </div>
           <div class="col-md-3">
-            <input id="longitude" type="number" step="any" class="form-control" placeholder="Longitude" name="longitude"/>
+            <input id="longitude" type="text" step="any" class="form-control" placeholder="Longitude" name="longitude"/>
           </div>
         </div>
         <br> <br>
