@@ -4,9 +4,7 @@ require_once 'header.php';
 if(!checkLogin()){
     header("Location: index.php");
 }
-
 $userid=$_SESSION['userid'];
-
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $realname=$_POST['realname'];
@@ -46,7 +44,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 </head>
 <body>
 <div class="narrow-body-wb">
-
 <form method="post" action="" role="form">
 	<div class="form-group">
     <label for="realname">Real Name</label>   
@@ -74,11 +71,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <button type="submit" value="Save" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
 </form>
-
-
 </div>
-
-
 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
