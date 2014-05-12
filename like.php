@@ -84,7 +84,7 @@
 	}
 
 	echo ''?>
-    <button class="btn btn-primary btn-like <?=$css?>" data-userid="<?=$userid?>" data-type="<?=$type?>" data-id="<?=$objid?>" ><?php echo $liked? 'liked':'like'; ?></button>
+    <button class="btn btn-link btn-like <?=$css?>" data-userid="<?=$userid?>" data-type="<?=$type?>" data-id="<?=$objid?>" ><span class="glyphicon glyphicon-thumbs-up"></span><?php echo $liked? 'liked':'like'; ?></button>
 
 <?php
     ;}

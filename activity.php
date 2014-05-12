@@ -12,6 +12,16 @@
 
 <body>
 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Activities</title>
+<link rel="shortcut icon" href="icon.gif">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href="global.css" rel="stylesheet" type="text/css">
+
+
+</head>
 <?php
     require_once 'utils.php';
     require 'header.php';
@@ -23,8 +33,6 @@
 	while($activity=$activity_list->fetch_assoc()){
 	    $activityid=$activity['activityid'];
 ?>
-
-
 
 <div class="container">
 <div class="row">

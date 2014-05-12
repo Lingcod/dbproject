@@ -13,6 +13,15 @@
     
     if($diary_result){
 	$diary=$diary_result->fetch_assoc();
+		if($diary['locationid']){
+			$locationid=$diary['locationid'];
+			$result=mysqli_query($con, "select * from location where locationid= $locationid");
+			$location=$result ->fetch_assoc();
+		}
+		else {
+			$locationid=NULL;
+			$location=NULL;
+		}
 ?>
 <html>
 <head>
@@ -26,7 +35,7 @@
 <script src="/global.js"></script>
 <div  class="container">
 	<div>
-		<h1> <?=$diary['title']?> <small>published at <?=$diary['posttime']?></small></h1>
+		<h1> <?=$diary['title']?> <small> <?=$diary['posttime']?> <a href="/location/<?=$locationid?>"><?=$location['locationname']?></a></small></h1>
         <br><br>
 		<h5> <?=$diary['content']?></h5>
     </div>
