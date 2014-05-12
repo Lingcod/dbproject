@@ -27,17 +27,17 @@
     }
     $pageid=$_GET['pageid'];
 ?>
-
-<div class="row">
-    <div class="profile col-lg-2">
-    <div class="container-fluid">
+<div class="container-fluid">
+	<div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-2">
+    
     <?php
         include 'profile.php';
         ?>
-     </div> 
+
     </div>
-    <div class="diary_list container">
-    <div class="col-lg-8">
+
+    <div class="col-sm-8 col-md-7 col-lg-7">
      
     <?php
         include 'diary_list.php';
