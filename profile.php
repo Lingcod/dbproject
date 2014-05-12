@@ -15,6 +15,9 @@
 	
 	  <div class="jumbotron">
 			<div>
+				<h3><strong><?=$row['username']?></strong><h3>
+			</div>
+			<div>
 				<strong>Name: </strong><?=$row['realname']?>
 			</div>
 			<div>

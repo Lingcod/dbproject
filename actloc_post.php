@@ -15,14 +15,26 @@
 	  $userid=$_SESSION['userid'];
 	  $username=$_SESSION['username'];
 	  $activityid=$_POST['activityid'];
+	  $activityname=$_POST['activityname'];
 	  $locationname=mysqli_real_escape_string($con, $_POST['locationname']);
 	  $longitude=$_POST['longitude'];
 	  $latitude=$_POST['latitude'];
 	  $privacy=$_POST['privacy'];
 
-	  $result = mysqli_query($con,"select activityname from activity where activityid='$activityid'");
-	  $row = $result->fetch_assoc();
-	  $acitivityname = $row['activityname'];
+	  if($activityid == -1 && !empty($activityname)){
+	      $result=$con->query("insert into activity (activityname) values ('$activityname')");
+	      if($result){
+		  $activityid=$con->insert_id;
+	      }
+	      else{
+		$message = "Add new activity failed";
+		die("<script type='text/javascript'>alert('$message');</script>");
+	      }
+	  }
+	  else{
+	      $result=$con->query("select * from activity where activityid=$activityid");
+	      $activityname=$result->fetch_assoc()['activityname'];
+	  }
 
 	  $isnew = mysqli_query($con,"select locationid from location where locationname='$locationname'");
 	  $row = $isnew->fetch_assoc();
@@ -46,7 +58,7 @@
 		$result=mysqli_query($con, "insert into actloc(activityid,locationid,userid) values ($activityid,$locationid,$userid)");
 		if($result){
 			$actlocid=$con->insert_id;
-			$title= $username . " thought " . $locationname . " is a good place for" . $activityname;
+			$title= $locationname ." is a good place for ".$activityname;
 			mysqli_query($con, "insert into news (tablename, pk, userid, privacy, title) values ('actloc', $actlocid, $userid, $privacy,'$title')");
   
 			header("Location: actloc.php");
@@ -65,56 +77,7 @@
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="shortcut icon" href="icon.gif">
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-<script>
-// This example displays an address form, using the autocomplete feature
-// of the Google Places API to help users fill in the information.
-
-var placeSearch, autocomplete;
-
-function initialize() {
-  // Create the autocomplete object, restricting the search
-  // to geographical location types.
-  autocomplete = new google.maps.places.Autocomplete(
-      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
-      { types: ['geocode'] });
-  // When the user selects an address from the dropdown,
-  // populate the address fields in the form.
-  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-    fillInAddress();
-  });
-}
-
-// [START region_fillform]
-function fillInAddress() {
-  // Get the place details from the autocomplete object.
-  var place = autocomplete.getPlace();
-  // Get each component of the address from the place details
-  // and fill the corresponding field on the form.
-      console.log(place);
-      document.getElementById('latitude').value = place.geometry.location.A;
-      document.getElementById('longitude').value = place.geometry.location.k;
-      window.setTimeout(function(){document.getElementById('autocomplete').value = place.name;},50)
-      
-
-}
-// [END region_fillform]
-
-// [START region_geolocation]
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
-function geolocate() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = new google.maps.LatLng(
-          position.coords.latitude, position.coords.longitude);
-      autocomplete.setBounds(new google.maps.LatLngBounds(geolocation,
-          geolocation));
-    });
-  }
-}
-// [END region_geolocation]
-
-    </script>
+<script src="/global.js">  </script>
 </head>
 <body onload="initialize()">
 <form method="POST" action="" enctype="multipart/form-data">
@@ -126,22 +89,32 @@ function geolocate() {
         </div>
       </div>
       <div class="modal-body">
-        <select name="activityid" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          <option value="1">Fishing</option>
-          <option value="2">Hiking</option>
-          <option value="3">Swimming</option>
-          <option value="4">Skydiving</option>
+        <select id="act-select" name="activityid" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" onchange="if(this.value == -1) show_tag('act-input',true); else show_tag('act-input',false);";>
+<?php 
+	    $act_result=$con->query("select * from activity order by activityname asc");
+	    if($act_result){
+		while($act_row=$act_result->fetch_assoc()){
+?>
+
+	    <option value="<?=$act_row['activityid']?>"><?=$act_row['activityname']?></option>
+<?php
+		}
+
+	    }
+?>
+        <option value="-1">Add New</option>
         </select>
+	<input style="display: none" id="act-input" name="activityname" class="form-control" type="text" placeholder="New Location Name" value="" />
         <br> <br>
         <div class="row">
           <div class="col-md-5">
             <input id="autocomplete" onFocus="geolocate()" type="text" class="form-control" placeholder="Location Name..." name="locationname"/>
           </div>
           <div class="col-md-3">
-            <input id="latitude" type="number" step="any" class="form-control" placeholder="Latitude" name="latitude"/>
+            <input id="latitude" type="text" step="any" class="form-control" placeholder="Latitude" name="latitude"/>
           </div>
           <div class="col-md-3">
-            <input id="longitude" type="number" step="any" class="form-control" placeholder="Longitude" name="longitude"/>
+            <input id="longitude" type="text" step="any" class="form-control" placeholder="Longitude" name="longitude"/>
           </div>
         </div>
         <br> <br>

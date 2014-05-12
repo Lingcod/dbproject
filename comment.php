@@ -39,7 +39,7 @@ function getCommentForm($diaryid){
     echo ''?> 
 <form method="POST" action="">
     <input type="hidden" name="diaryid" value="<?=$diaryid?>" />
-    <textarea name="content" style="border:hidden" class="form-control" placeholder="Leave a comment..."></textarea>
+    <textarea name="content" rows="1" style="border:hidden" class="form-control" placeholder="Leave a comment..."></textarea>
     <button type="submit" value="" class="btn btn-default" name="submit">Submit</button>
 </form>
 <?php

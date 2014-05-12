@@ -38,7 +38,7 @@
 
         <div  class="container">
         <ul class="list-group">
-    	<li class="list-group-item"><h4><a href="page/<?=$row['userid']?>"><?= $row['username']?></a>: <a href="<?=$tablename?>/<?=$row['pk']?>"><?= $row['title']?></a></h4>
+    <li class="list-group-item"><h4><a href="page/<?=$row['userid']?>"><?= $row['username']?></a>: <a href="<?=$tablename?>/<?=$row['pk']?>"<?php if($tablename=="actloc") echo 'onclick="return false;"' ?>><?= $row['title']?></a></h4>
         <?= $row['abstract']?><br>
         <?php like_btn($userid,$row['pk'],$tablename)?><br>
         <?php if($row['tablename']=='diary'){ getComment($row['pk']); } ?></li>

@@ -18,16 +18,16 @@
 		
 		$isnew = mysqli_query($con,"select locationid from location where locationname='$locationname'");
 		
-	    if(empty($isnew)){
+		if($isnew->num_rows==0){
 		  $longitude=$_POST['longitude'];
 		  $latitude=$_POST['latitude'];
 		  $result = mysqli_query($con,"insert into location(locationname, longitude, latitude) values ('$locationname',$longitude,$latitude)");
 		  //$row = $result->fetch_assoc();
-		  $locationid = $result['locationid'];
+		  $locationid = $con->insert_id;
 		  //TODO  if insert location fail?
 	    }
 	    else{
-		  $row = $isnew->fetch_assoc();
+		$row = $isnew->fetch_assoc();
 		  $locationid = $row['locationid'];
 	    }
 	}
@@ -41,7 +41,7 @@
 	    $abstract=implode(' ', array_slice(explode(' ', $content), 0, 100));
 	    mysqli_query($con, "insert into news (tablename, pk, userid, privacy, title, abstract ) values ('diary', $diaryid, $userid, $privacy,'$title','$abstract')");
 		
-	    if(!empty($_FILES['pic'])){
+	    if(!empty($_FILES['pic']['tmp_name'][0])){
 		  $pics = $_FILES['pic'];
 		  foreach($pics['tmp_name'] as $key=>$value){
 			echo $value;
@@ -57,11 +57,14 @@
 	    header("Location: diary/$diaryid");
 
 	}
-	else
+	else{
+	  die(var_dump("insert into diary(title, content, privacy, userid, locationid) values('$title','$content', $privacy, $userid, $locationid)")); 
 	  header("HTTP/1.0 404 Not Found");
 
 
 
+
+    }
     }
 
 ?>
@@ -71,8 +74,10 @@
 <title>Post New Diary</title>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="shortcut icon" href="icon.gif">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="/global.js">  </script>
 </head>
-<body>
+<body onload="initialize()">
 <form method="POST" action="" enctype="multipart/form-data">
 <div class="modal-dialog">
     <div class="modal-content">
@@ -94,13 +99,13 @@
       <input type="file" name="pic[]" multiple /> <br>
       <div class="row">
         <div class="col-md-5">
-          <input type="text" class="form-control" placeholder="Your location..." name="locationname"/>
+          <input id="autocomplete" type="text" class="form-control" placeholder="Your location..." name="locationname"/>
         </div>
         <div class="col-md-3">
-          <input type="number" class="form-control" placeholder="latitude" name="latitude"/>
+          <input id="latitude" type="text" class="form-control" placeholder="latitude" name="latitude"/>
         </div>
         <div class="col-md-3">
-          <input type="number" class="form-control" placeholder="longitude" name="longitude"/>
+          <input id="longitude" type="text" class="form-control" placeholder="longitude" name="longitude"/>
         </div>
       </div>
       <div class="modal-footer">
