@@ -16,9 +16,7 @@ require_once 'header.php';
 if(!checkLogin()){
     header("Location: index.php");
 }
-
 $userid=$_SESSION['userid'];
-
 
 if($_SERVER['REQUEST_METHOD']=='POST' ){
     $realname=$_POST['realname'];
@@ -79,14 +77,10 @@ if($_SERVER['REQUEST_METHOD']=='POST' ){
 	</div>
 </form>
 
-
-
 <?php
     include_once 'likeactivity.php';
 ?>
 </div>
-
-
 
 </body>
 </html>

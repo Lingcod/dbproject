@@ -38,10 +38,10 @@
 
         <div  class="container">
         <ul class="list-group">
-    <li class="list-group-item"><h4><a href="page/<?=$row['userid']?>"><?= $row['username']?></a>: <a href="<?=$tablename?>/<?=$row['pk']?>"><?= $row['title']?></a></h4></li>
-          <li class="list-group-item"><?= $row['abstract']?></li>
-      <?php like_btn($userid,$row['pk'],$tablename)?>
-          <li class="list-group-item"><?php if($row['tablename']=='diary'){ getComment($row['pk']); } ?></li>
+    	<li class="list-group-item"><h4><a href="page/<?=$row['userid']?>"><?= $row['username']?></a>: <a href="<?=$tablename?>/<?=$row['pk']?>"><?= $row['title']?></a></h4>
+        <?= $row['abstract']?><br>
+        <?php like_btn($userid,$row['pk'],$tablename)?><br>
+        <?php if($row['tablename']=='diary'){ getComment($row['pk']); } ?></li>
         </ul>
         </div>
 

@@ -38,12 +38,13 @@
 	font-size: small;
 	}
 	
-html {
- background: url(index_background.jpg) no-repeat center center fixed;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
+html 
+{
+ 	background: url(index_background.jpg) no-repeat center center fixed;
+ 	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
 }
 
 #login
