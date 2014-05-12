@@ -18,16 +18,16 @@
 		
 		$isnew = mysqli_query($con,"select locationid from location where locationname='$locationname'");
 		
-	    if(empty($isnew)){
+		if($isnew->num_rows==0){
 		  $longitude=$_POST['longitude'];
 		  $latitude=$_POST['latitude'];
 		  $result = mysqli_query($con,"insert into location(locationname, longitude, latitude) values ('$locationname',$longitude,$latitude)");
 		  //$row = $result->fetch_assoc();
-		  $locationid = $result['locationid'];
+		  $locationid = $con->insert_id;
 		  //TODO  if insert location fail?
 	    }
 	    else{
-		  $row = $isnew->fetch_assoc();
+		$row = $isnew->fetch_assoc();
 		  $locationid = $row['locationid'];
 	    }
 	}
@@ -41,7 +41,7 @@
 	    $abstract=implode(' ', array_slice(explode(' ', $content), 0, 100));
 	    mysqli_query($con, "insert into news (tablename, pk, userid, privacy, title, abstract ) values ('diary', $diaryid, $userid, $privacy,'$title','$abstract')");
 		
-	    if(!empty($_FILES['pic'])){
+	    if(!empty($_FILES['pic']['tmp_name'][0])){
 		  $pics = $_FILES['pic'];
 		  foreach($pics['tmp_name'] as $key=>$value){
 			echo $value;
@@ -57,11 +57,14 @@
 	    header("Location: diary/$diaryid");
 
 	}
-	else
+	else{
+	  die(var_dump("insert into diary(title, content, privacy, userid, locationid) values('$title','$content', $privacy, $userid, $locationid)")); 
 	  header("HTTP/1.0 404 Not Found");
 
 
 
+
+    }
     }
 
 ?>
