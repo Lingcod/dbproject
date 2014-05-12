@@ -11,32 +11,18 @@ function checkLogin(){
 	return false;
 }
 
-function isNewLocation($lname){
-    if($con->query("select * from location where locationname='$lname'")){
-	$row = $con->fetch_assoc();
-	return $row['locationid'];
-    }
-    else{
-	return null;
-    }
-}
 
-function isNewAct($aname){
-    if($con->query("select * from activity where activityname='$aname'")){
-	$row = $con->fetch_assoc();
-	return $row['activityid'];
+function get_act_str($userid){
+    global $con;
+    $result=$con->query("select * from likeactivity natural join activity where userid=$userid order by addtime asc");
+    if($result){
+	$data=array();
+	while($row=$result->fetch_assoc()){
+	    array_push($data, $row['activityname']);
+	}
+	return implode(',',$data);
     }
-    else{
-	return null;
-    }
+    else
+	return '';
 }
-
-function addLocation($lname, $longitude, $latitude){
-    return $con->query("insert into location(locationname, longitude, latitude) values ('$lname', $longitude, $latitude)");
-}
-
-function addAct($aname){
-    return $con->query("insert into activity(activityname) values ('$aname')");
-}
-
 ?>

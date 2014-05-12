@@ -22,6 +22,9 @@
 		    <strong>Last Access: </strong><br><?=$lastaccess?>
 		</div>
 	   
+    <div>
+<strong>Like:</strong><?php echo get_act_str($pageid); ?>
+    </div>
    </div>
 
 <?php

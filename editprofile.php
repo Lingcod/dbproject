@@ -1,3 +1,15 @@
+<html>
+<head>
+  <title>Timeline - Wildbook</title>
+  <link rel="shortcut icon" href="icon.gif">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href="global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/jquery.min.js"></script>
+<script src="/global.js"></script>
+
 <?php
 require_once 'utils.php';
 require_once 'header.php';
@@ -8,7 +20,7 @@ if(!checkLogin()){
 $userid=$_SESSION['userid'];
 
 
-if($_SERVER['REQUEST_METHOD']=='POST'){
+if($_SERVER['REQUEST_METHOD']=='POST' ){
     $realname=$_POST['realname'];
     $age=$_POST['age'];
     if(empty($age)) $age='null';
@@ -37,17 +49,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 
 
-<html>
-<head>
-  <title>Timeline - Wildbook</title>
-  <link rel="shortcut icon" href="icon.gif">
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link href="global.css" rel="stylesheet" type="text/css">
-</head>
-<body>
 <div class="narrow-body-wb">
 
-<form method="post" action="" role="form">
+<form class="editprofile" method="post" action="" role="form">
 	<div class="form-group">
     <label for="realname">Real Name</label>   
     <input type="text" name="realname" class="form-control" value="<?=$realname?>" />
@@ -71,15 +75,18 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     </div>
     <br><br>
     <div class="form-group">
-    <button type="submit" value="Save" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    <button type="submit" value="Save" name="editprofile" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
 </form>
 
 
+
+<?php
+    include_once 'likeactivity.php';
+?>
 </div>
 
 
 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>

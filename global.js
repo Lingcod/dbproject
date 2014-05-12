@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
     $('.btn-like').click(function(e) {
 	$.post('/like.php', {
 	    userid:$(this).attr('data-userid'),
@@ -15,4 +15,19 @@ $(document).ready(function(){
 	    }
 	});
     });
+
+    $('.editprofile').on('submit',function(event) {
+	event.preventDefault(); // Prevent the form from submitting via the browser.
+	var form = $(this);
+	$.ajax({
+	  type: form.attr('method'),
+	  url: form.attr('action'),
+	  data: form.serialize()
+	}).success(function() {
+	    alert('saved');
+	  // Optionally alert the user of success here...
+	});
+      });
 });
+
+
