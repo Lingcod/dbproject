@@ -2,7 +2,7 @@
     require_once 'utils.php';
 	$lastaccess = $_SESSION['lastaccess'];
 	$userid = $_SESSION['userid'];
-    $result=mysqli_query($con, "select * from profile  where  privacy<=getrelation(userid, $userid) and userid='$pageid';");
+    $result=mysqli_query($con, "select * from profile natural join user  where  privacy<=getrelation(userid, $userid) and userid='$pageid';");
     
     if($result){
 	//TODO: maybe it should be clear whether it's hidden or it has not been set yet.
@@ -14,6 +14,9 @@
 	?>
 	
 	  <div class="jumbotron">
+			<div>
+				<h3><strong><?=$row['username']?></strong><h3>
+			</div>
 			<div>
 				<strong>Name: </strong><?=$row['realname']?>
 			</div>

@@ -10,7 +10,6 @@
     <a href="/index.php"><span class="glyphicon glyphicon-home"></span>Homepage</a>&nbsp;&nbsp;
     <a href="/location.php"><span class="glyphicon glyphicon-map-marker"></span>Locations</a>&nbsp;&nbsp;
     <a href="/activity.php"><span class="glyphicon glyphicon-fire"></span>Activities</a>&nbsp;&nbsp;
-    <a href="/about.php"><span class="glyphicon glyphicon-tag"></span>About</a> &nbsp;&nbsp;
     <a href="/search.php"><span class="glyphicon glyphicon-search"></span>Search</a> 
 </div>
 
@@ -26,7 +25,7 @@ if(!$isguest){?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/page/<?=$_SESSION['userid']?>"><span class="glyphicon glyphicon-user"></span> <?=$_SESSION['username']?>'s Page </a>
+      <a class="navbar-brand" href="/page/<?=$_SESSION['userid']?>"><span class="glyphicon glyphicon-user"></span> <?=$_SESSION['username']?></a>
       <a class="navbar-brand" href="/actloc.php"> <span class="glyphicon glyphicon-eye-open"></span> Discover </a>
     </div>
 
