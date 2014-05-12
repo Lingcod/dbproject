@@ -38,7 +38,7 @@
     if($_SERVER['REQUEST_METHOD']=='POST'){
 	$haveresult=false;
 	if($search_type=='0'){
-	    $people_list = $con->query("select * from user natural join profile where privacy<=getrelation(userid,$userid) and ( realname like '%{$keyword}%')"); 
+	    $people_list = $con->query("select * from user natural join profile where (privacy<=getrelation(userid,$userid) or privacy is NULL) and ( realname like '%{$keyword}%')"); 
 	    if($people_list){
 		while($people=$people_list->fetch_assoc()){
 		    $haveresult=true;
