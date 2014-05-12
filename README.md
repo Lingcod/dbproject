@@ -5,14 +5,5 @@ database project
 
 TODO:
 
-Add friend
-
-News page
-
-Timeline page(profile page)
-
-Post page
-
-Actloc page(including post and display)
-
-like
+Sign up has bug
+add different relationship privacy to maker and makee

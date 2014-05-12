@@ -34,9 +34,11 @@ if(!$isguest){?>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="btn btn-info btn-lg" href="/diary_post.php"><span class="glyphicon glyphicon-edit"></span> Write new diary</a></li>
-        <li><a class="btn btn-success btn-lg" href="/actloc_post.php"><span class="glyphicon glyphicon-plus"></span> Post a new place for activity</a></li>
-        <li><a href="/editprofile.php"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
+        <li><a class="btn btn-info btn-lg" href="/diary_post.php"><span class="glyphicon glyphicon-pencil"></span> New diary</a></li>
+        <li><a class="btn btn-success btn-lg" href="/actloc_post.php"><span class="glyphicon glyphicon-plus"></span> New place for activity</a></li>
+        
+        <li><a href="/message.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
+        <li><a href="/editprofile.php"><span class="glyphicon glyphicon-edit"></span> Profile</a></li>
         <li><a href="/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         <!--form class="navbar-form" role="search">
         <div class="form-group">
