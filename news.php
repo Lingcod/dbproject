@@ -8,6 +8,7 @@
     if(!$isguest){
 	$userid=$_SESSION['userid'];
 	$username=$_SESSION['username'];
+	$lastaccess=$_SESSION['lastaccess'];
     }
     else{
 	header('Location: index.php');//TODO add pages for guest
@@ -27,6 +28,7 @@
 <script src="/global.js"></script>
 <div>
 <?php
+    $divided=false;
     $result = mysqli_query($con,"select * from news natural join user where privacy<=getrelation(userid,$userid) and getrelation(userid,$userid) between 1 and 2 order by posttime desc ");
 
 
@@ -34,11 +36,24 @@
 	while($row=$result->fetch_assoc()){
 		if($row['tablename']=='diary') $tablename='diary';
 		else if($row['tablename']=='actloc') $tablename='actloc';
+
+		if($row['posttime']<=$lastaccess && $divided==false ){
+		    echo '<div  class="container"><div style="color: #5bc0de; text-align: center; font-weight: bold" >Above is news before last time you login</div></div><br>';
+
+		    $divided=true;
+		}
 	    ?>
 
-        <div  class="container">
+
+	    
+<div  class="container">
         <ul class="list-group">
-    <li class="list-group-item"><h4><a href="page/<?=$row['userid']?>"><?= $row['username']?></a>: <a href="<?=$tablename?>/<?=$row['pk']?>"<?php if($tablename=="actloc") echo 'onclick="return false;"' ?>><?= $row['title']?></a></h4>
+	    <li class="list-group-item">
+		<h4><a href="page/<?=$row['userid']?>"><?= $row['username']?></a>: 
+		<a href="<?=$tablename?>/<?=$row['pk']?>"<?php if($tablename=="actloc") echo 'onclick="return false;"' ?>>
+		    <?= $row['title']?>
+		</a>
+		</h4>
         <?= $row['abstract']?><br>
         <?php like_btn($userid,$row['pk'],$tablename)?><br>
         <?php if($row['tablename']=='diary'){ getComment($row['pk']); } ?></li>

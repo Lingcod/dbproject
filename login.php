@@ -29,6 +29,7 @@ if( $_SERVER['REQUEST_METHOD']='POST' ){
 		$_SESSION['username']=$username;
 		$_SESSION['userid']=$userid;
 		$_SESSION['lastaccess']=$lastaccess;
+		$con->query("update user set lastaccess=NOW() where userid=$userid");
 		header( "Location: news.php");
 		
 	    }
