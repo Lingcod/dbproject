@@ -1,6 +1,6 @@
 <?php 
 require_once 'utils.php';
-
+error_reporting(0);
 $action = array();
 $action['result'] = null;
 

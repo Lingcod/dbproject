@@ -30,7 +30,7 @@
 				<strong>Last Access: </strong><br><?=$lastaccess?>
 			</div>
 			<div>
-		    <strong>Like:</strong><?php echo get_act_str($pageid); ?>
+		    <strong>Like: </strong><?php echo get_act_str($pageid); ?>
 			</div>
             <br>
             <a href="/friendship?page=<?=$_GET['pageid']?>"><span class="glyphicon glyphicon-heart-empty"></span> His/Her Friends</a><br>
