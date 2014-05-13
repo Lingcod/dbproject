@@ -3,6 +3,8 @@
     require_once 'utils.php';
     $isguest=!checkLogin();
     $_SESSION['guest']=$isguest;
+	$userid = $_SESSION['userid'];
+	$lastaccess = $_SESSION['lastaccess'];
  ?>
 
 <div id="menu">
@@ -14,7 +16,21 @@
 </div>
 
 <?php
-if(!$isguest){?>
+if(!$isguest){
+	$is_new_message = false;
+	$message = mysqli_query($con, "select count(*) as count from message where receiverid='$userid' and posttime>'$lastaccess'");
+	if($message){
+		$result = $message->fetch_assoc();
+		$count = $result['count'];
+	}
+	else 
+		$count = 0;
+	if($count!=0) 
+		$is_new_message = true;
+	
+	
+	
+?>
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,7 +52,14 @@ if(!$isguest){?>
         <li><a class="btn btn-info btn-lg" href="/diary_post.php"><span class="glyphicon glyphicon-pencil"></span> New diary</a></li>
         <li><a class="btn btn-success btn-lg" href="/actloc_post.php"><span class="glyphicon glyphicon-plus"></span> New place for activity</a></li>
         
-        <li><a href="/message.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
+        <li><a href="/message.php"><span class="glyphicon glyphicon-envelope"></span> Message
+<?php		if($is_new_message){
+?>				<span class="badge"><?=$count?></span>
+
+<?php		}
+?>
+        
+        </a></li>
         <li><a href="/editprofile.php"><span class="glyphicon glyphicon-edit"></span> Profile</a></li>
         <li><a href="/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         <!--form class="navbar-form" role="search">
