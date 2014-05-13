@@ -13,6 +13,7 @@
 <?php
 require_once 'utils.php';
 require_once 'header.php';
+error_reporting(0);
 if(!checkLogin()){
     header("Location: index.php");
 }

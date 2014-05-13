@@ -2,6 +2,7 @@
 require_once 'utils.php';
 $username='';
 
+error_reporting(0);
 $action = array();
 $action['result'] = null;
 

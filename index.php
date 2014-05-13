@@ -2,7 +2,7 @@
 
 <?php 
 require_once 'utils.php'; 
-
+error_reporting(0);
 $isGuest= !checkLogin();
 if(!$isGuest){
     header( "Location: news.php" );
