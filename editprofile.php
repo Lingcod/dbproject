@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' ){
     $city=$_POST['city'];
     $privacy=$_POST['privacy'];
 
-    $result=mysqli_query($con, "update `profile` set realname='$realname' , age=$age, city='$city', privacy=$privacy where userid=$userid");
+    $result=mysqli_query($con, "update `profile` set realname='$realname' , age=$age, city='$city', privacy=$privacy , lastmodify=NOW() where userid=$userid");
     if(!$result){
 	//TODO: update succeed!
 	echo '<div style="color: red">save failed!</div>';
